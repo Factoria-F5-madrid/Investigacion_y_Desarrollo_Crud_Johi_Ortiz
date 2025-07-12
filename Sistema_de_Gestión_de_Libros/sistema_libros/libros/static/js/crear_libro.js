@@ -70,6 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function validateField(field) {
         const formGroup = field.closest('.form-group');
+        if (!formGroup) {
+            console.error('Error: no .form-group parent found for field:', field.name || field.id || 'unknown');
+            return true;
+        }
+
         const value = field.value.trim();
         
         // Remover clases anteriores
@@ -159,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // === VALIDACIÓN DEL FORMULARIO ===
     if (form) {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault();     // Detener el envío por defecto
             
             let isValid = true;
             let firstInvalidField = null;
@@ -176,17 +181,44 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isValid) {
                 // Mostrar indicador de carga
                 showLoadingState();
-                
-                // Simular delay para mejor UX
-                setTimeout(() => {
-                    form.submit();
-                }, 1000);
+
+                // Obtener el token CSRF para Django
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+                // Recopilar todos los datos del formulario
+                const formData = new FormData(form);
+
+                // Enviar datos a Django usando fetch
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    header: {
+                        'X-CSRFToken': csrfToken,
+                    },
+                    credentials: 'same-origin' // Para incluir cookies en la solicitud
+                })
+                .then(response => {
+                    if (response.redirected) {
+                        // Si Django redirige (común después de un POST exitoso), seguir la redirección
+                        window.location.href = '/libros/';
+                    } else {
+                        // Si hay un error del lado del servidor
+                        throw new Error('ERror del servidor: ' + response.status)
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al guardar:', error);
+                    // Restaurar el botón de envío
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Guardar';
+                    // Mostrar mensaje de error
+                    showErrorMessage('Error al guardar el libro. Por favor, inténtalo de nuevo.')
+                });
             } else {
                 // Enfocar el primer campo inválido
                 if (firstInvalidField) {
                     firstInvalidField.focus();
                 }
-                
                 // Mostrar mensaje de error
                 showErrorMessage('Por favor, completa todos los campos requeridos correctamente.');
             }
@@ -308,10 +340,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Log de inicialización
         console.log('📚 Formulario de crear libro inicializado');
         console.log('⌨️ Atajos disponibles:');
-        console.log('   • Ctrl+S: Guardar');
-        console.log('   • Alt+T: Consejos');
-        console.log('   • Alt+P: Vista previa');
-        console.log('   • Esc: Cerrar modal');
+        console.log('💾 • Ctrl+S: Guardar');
+        console.log('📎 • Alt+T: Consejos');
+        console.log('👁️‍🗨️ • Alt+P: Vista previa');
+        console.log('❌ • Esc: Cerrar modal');
     }
     
     // Ejecutar inicialización
