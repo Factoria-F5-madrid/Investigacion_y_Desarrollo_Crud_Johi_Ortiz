@@ -1,5 +1,17 @@
-# 🌱 Investigación y Desarrollo de un CRUD con Django
+# 🔎 Investigación y Desarrollo de un CRUD con Django
 
+---
+
+## Índice
+
+- [¿Qué es un CRUD y cuál es su propósito en el desarrollo de aplicaciones web](#-1-qué-es-un-crud-y-cuál-es-su-propósito-en-el-desarrollo-de-aplicaciones-web)
+- [¿Qué son los patrones de arquitectura en desarrollo de software](#%EF%B8%8F-2-qué-son-los-patrones-de-arquitectura-en-desarrollo-de-software)
+- [¿Cómo se estructura un proyecto en Django](#-3-cómo-se-estructura-un-proyecto-en-django)
+- [¿Cuál es el flujo de datos entre un formulario html y la base de datos en django](#-4-cuál-es-el-flujo-de-datos-entre-un-formulario-html-y-la-base-de-datos-en-django)
+- [¿Qué herramientas o comandos ofrece django para facilitar el desarrollo de un crud](#%EF%B8%8F-5-qué-herramientas-o-comandos-ofrece-django-para-facilitar-el-desarrollo-de-un-crud)
+- [¿Cómo funciona el admin de django](#-6-cómo-funciona-el-admin-de-django)
+- [Instalación](#-instalación)
+- [Activar modo administrador en Django](#-activar-modo-administrador-en-django)
 ---
 
 ## 🧮 1. ¿Qué es un CRUD y cuál es su propósito en el desarrollo de aplicaciones web?
@@ -54,9 +66,11 @@ Esto se hace para separar las representaciones internas de información de las f
   <img src="https://hektorprofe.github.io/cdn/django/46.png" alt="Diagrama CRUD" width="400" />
 </p>
 Este patrón, una ligera variación del MVC, divide una aplicación web en 3 partes interconectadas:
+
 - **Modelo:** Estructura y gestiona los datos.
 - **Vista:** Procesa la lógica y responde a las peticiones.
 - **Template:** Define cómo se muestra la información (HTML).
+  
 El objetivo es separar la lógica de negocio de la presentación, lo que facilita el desarrollo y mantenimiento al desacoplar los componentes.
 
 ### 📌 Uso
