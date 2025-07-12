@@ -12,6 +12,7 @@
 - [¿Cómo funciona el admin de django](#-6-cómo-funciona-el-admin-de-django)
 - [Instalación](#-instalación)
 - [Activar modo administrador en Django](#-activar-modo-administrador-en-django)
+- [Proyecto Monolítico en Django: Sistema de Gestión de Libros](./Sistema_de_Gestión_de_Libros/README.md)
 ---
 
 ## 🧮 1. ¿Qué es un CRUD y cuál es su propósito en el desarrollo de aplicaciones web?
