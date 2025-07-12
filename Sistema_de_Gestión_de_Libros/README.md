@@ -1,6 +1,8 @@
-# Sistema de Gestión de Libros
+<h1 align="center"> 📖 Sistema de Gestión de Libros</h1>
 
-![Banner del Proyecto](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjB4N3RidGM5a3pod2tyaGd0aXJiYTB2eWF6d2kxcDl2aXp6ZTQ3YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dB6ogWRDUsMKuAWrqi/giphy.gif)
+<p align="center">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGFha3F3aW5jZGE1dm5ldXNyaDB6MXh4Z2JvNGk5NTZrcXhyZTUzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdJvcwUTTv5BvoI/giphy.gif" alt="Banner del Proyecto">
+</p>
 
 ## 📚 Descripción
 
@@ -22,6 +24,29 @@ Un sistema completo de gestión de biblioteca digital que permite realizar opera
 - **Diseño**: Tailwind CSS
 - **Base de datos**: SQLite
 - **Validación**: Django Forms
+
+## 🔒 Seguridad
+
+### Protección CSRF
+El sistema implementa protección contra ataques CSRF (Cross-Site Request Forgery) utilizando tokens generados por Django:
+
+- **¿Qué es un token CSRF?** Es un valor único y secreto que protege tu aplicación contra ataques de falsificación de solicitudes entre sitios.
+- **Implementación**: Cada formulario incluye un token CSRF único que se valida en el servidor.
+- **En formularios tradicionales**: Django inserta automáticamente un campo oculto con el token.
+- **En solicitudes AJAX**: El token se envía en el encabezado 'X-CSRFToken'.
+
+```javascript
+// Ejemplo de implementación en JavaScript para peticiones AJAX
+const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+fetch('/api/libros/', {
+    method: 'POST',
+    headers: {
+        'X-CSRFToken': csrfToken
+    },
+    body: formData
+});
+```
 
 ## 🚀 Instalación
 
@@ -122,15 +147,10 @@ sistema_libros/
 
 ## 👨‍💻 Autor
 
-**Johi Ortiz** - Desarrollado como parte del curso de Desarrollo Web Avanzado.
+**Johi Ortiz** - Desarrollado como parte del Bootcamp de IA P5 de Factoria F5🟠.
 
 📆 Fecha: 12 de julio de 2025
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
-
----
 
 ### 📊 Estado del proyecto
 
