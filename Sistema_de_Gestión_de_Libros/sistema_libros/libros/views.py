@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from .models import Libro
 from .forms import LibroForm
 
@@ -14,8 +15,17 @@ def crear_libro(request):
     if request.method == 'POST':
         form = LibroForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('lista_libros')
+            try:
+                libro = form.save()
+                messages.success(request, f'Libro "{libro.titulo}" guardado correctamente.')
+                return redirect('lista_libros')
+            except Exception as e:
+                messages.error(request, f'Error al guardar el libro: {str(e)}')
+        else:
+            # Mostras errores específicos del formulario
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'Error en {field}: {error}')
     else:
         form = LibroForm()
     return render(request, 'libros/crear_libro.html', {'form': form})

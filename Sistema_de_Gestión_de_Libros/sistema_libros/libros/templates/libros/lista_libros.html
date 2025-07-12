@@ -1,14 +1,135 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Lista de Libros</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital - Lista de Libros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in',
+                        'fade-in-up': 'fadeInUp 0.6s ease-in'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        fadeInUp: {
+                            '0%': { 
+                                opacity: '0',
+                                transform: 'translateY(20px)'
+                            },
+                            '100%': { 
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="{% static 'css/lista_libros.css' %}">
 </head>
-<body>
-    <h1>Lista de Libros</h1>
-    <ul>
-    {% for libro in libros %}
-        <li><a href="{% url 'detalle_libro' libro.id %}">{{ libro.titulo }}</a></li>
-    {% endfor %}
-    </ul>
+<body class="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 p-5">
+    <div class="max-w-4xl mx-auto bg-white/95 rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-slate-800 to-slate-700 text-white text-center py-12 px-5">
+            <h1 class="text-4xl md:text-5xl font-bold mb-3 drop-shadow-lg">📚 Biblioteca Digital</h1>
+            <p class="text-lg opacity-90">Descubre tu próxima aventura literaria</p>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="bg-white border-b border-gray-200 px-6 py-4">
+            <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+            <!-- Botón Crear Libro -->
+             <a href="{% url 'crear_libro' %}"
+                class="btn-primary btn-green">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0 0v6m0-6h6m-6 0h6"></path>
+                </svg>
+                Crear Libro
+             </a>
+
+            <!-- Botón Lista de Libros (activo) -->
+            <a href="{% url 'lista_libros' %}" 
+                class="btn-primary btn-active">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                    Lista de Libros
+            </a>
+
+        <!-- Content Container -->
+        <div class="p-6 md:p-8">
+            <!-- Search Box -->
+            <div class="mb-8 relative">
+                <input 
+                    type="text" 
+                    class="w-full px-6 py-4 border-2 border-gray-200 rounded-full text-lg outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100" 
+                    placeholder="🔍 Buscar libros..." 
+                    id="searchInput"
+                >
+            </div>
+            
+            <!-- Books Grid -->
+            {% if libros %}
+                <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none" id="booksGrid">
+                {% for libro in libros %}
+                    <li class="book-card bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 hover:border-indigo-400 overflow-hidden" 
+                        data-title="{{ libro.titulo|lower }}">
+                        <a href="{% url 'detalle_libro' libro.id %}" class="block p-6 text-inherit no-underline">
+                            <!-- Book Icon -->
+                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 text-white text-2xl">
+                                📘
+                            </div>
+                            
+                            <!-- Book Title -->
+                            <div class="text-xl font-semibold text-slate-800 mb-2 leading-tight">
+                                {{ libro.titulo }}
+                            </div>
+                            
+                            <!-- Book Meta -->
+                            <div class="text-gray-600 text-sm flex items-center gap-2">
+                                <span>📖</span>
+                                <span>
+                                    {% if libro.autor %}
+                                        {{ libro.autor }}
+                                    {% else %}
+                                        Autor desconocido
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <!-- Empty State -->
+                <div class="text-center py-16 px-5 text-gray-500">
+                    <h3 class="text-2xl font-medium mb-3 text-gray-400">📭 No hay libros disponibles</h3>
+                    <p class="text-lg">Parece que la biblioteca está vacía. ¡Pronto habrá nuevos libros!</p>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Stats Bar -->
+        {% if libros %}
+        <div class="footer-stats">
+            <div class="footer-stats-content">
+                <span>📚 Total de libros: <strong>{{ libros|length }}</strong></span>
+                <span>👤 Bibliotecario: <strong>johiortiz</strong></span>
+                <span>📅 Última actualización: <strong>12/07/2025 10:16</strong></span>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="{% static 'js/lista_libros.js' %}"></script>
 </body>
 </html>

@@ -1,0 +1,304 @@
+.book-card {
+    animation-delay: calc(var(--index, 0) * 0.1s);
+}
+
+/* Animación personalizada para las tarjetas */
+@keyframes bookCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.book-card-animate {
+    animation: bookCardEnter 0.6s ease-out both;
+}
+
+/* Efecto de pulso en el input de búsqueda cuando está vacío */
+.search-input-pulse {
+    animation: searchPulse 2s infinite;
+}
+
+@keyframes searchPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+}
+
+/* Efecto de brillo en hover para las tarjetas */
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.book-card:hover::before {
+    left: 100%;
+}
+
+.book-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* NUEVOS ESTILOS PARA LOS BOTONES Y COMPONENTES */
+
+/* Botones principales */
+.btn-primary {
+    @apply inline-flex items-center px-6 py-3 font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl;
+}
+
+.btn-green {
+    @apply bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700;
+}
+
+.btn-blue {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-600 text-white hover:from-blue-600 hover:to-cyan-700;
+}
+
+.btn-active {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-2 border-indigo-300;
+}
+
+.btn-large {
+    @apply px-8 py-4;
+}
+
+/* Input de búsqueda */
+.search-input {
+    @apply w-full px-6 py-4 border-2 border-gray-200 rounded-full text-lg outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100;
+}
+
+.search-shortcut {
+    @apply absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400;
+}
+
+/* Panel de estadísticas */
+.stats-panel {
+    @apply mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200;
+}
+
+.stats-title {
+    @apply text-xl font-semibold text-blue-800 mb-4 flex items-center;
+}
+
+.stats-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+
+.stat-card {
+    @apply text-center p-4 bg-white rounded-lg shadow;
+}
+
+.stat-number {
+    @apply text-2xl font-bold;
+}
+
+.stat-label {
+    @apply text-sm text-gray-600;
+}
+
+/* Grid de libros */
+.books-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none;
+}
+
+/* Tarjetas de libros mejoradas */
+.book-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 hover:border-indigo-400 overflow-hidden;
+}
+
+.book-card-content {
+    @apply relative;
+}
+
+.book-link {
+    @apply block p-6 text-inherit no-underline group;
+}
+
+.book-icon {
+    @apply w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 text-white text-2xl group-hover:scale-110 transition-transform duration-300;
+}
+
+.book-title {
+    @apply text-xl font-semibold text-slate-800 mb-2 leading-tight group-hover:text-indigo-600 transition-colors duration-300;
+}
+
+.book-meta {
+    @apply text-gray-600 text-sm flex items-center gap-2 mb-3;
+}
+
+.book-description {
+    @apply text-gray-500 text-sm line-clamp-2;
+}
+
+/* Botones de acción en las tarjetas */
+.book-actions {
+    @apply px-6 pb-6 flex gap-2;
+}
+
+.btn-detail {
+    @apply flex-1 text-center py-2 px-4 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-colors duration-200 text-sm font-medium;
+}
+
+.btn-edit {
+    @apply py-2 px-3 bg-yellow-100 text-yellow-700 rounded-lg hover:bg-yellow-200 transition-colors duration-200;
+}
+
+.btn-delete {
+    @apply py-2 px-3 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors duration-200;
+}
+
+/* Estado vacío */
+.empty-state {
+    @apply text-center py-16 px-5 text-gray-500;
+}
+
+.empty-icon {
+    @apply text-8xl mb-6;
+}
+
+.empty-title {
+    @apply text-2xl font-medium mb-3 text-gray-400;
+}
+
+.empty-description {
+    @apply text-lg mb-8;
+}
+
+/* Pie de página con estadísticas */
+.footer-stats {
+    @apply bg-gray-50 px-8 py-4 border-t border-gray-200 text-center text-gray-600 text-sm;
+}
+
+.footer-stats-content {
+    @apply flex flex-wrap justify-center gap-6;
+}
+
+/* Tooltips */
+.tooltip {
+    @apply absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 transition-opacity duration-200 z-10;
+}
+
+/* Efecto hover para botones con tooltip */
+[title]:hover .tooltip {
+    @apply opacity-100;
+}
+
+/* Estilos para el scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Personalización del scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Estilos para el loading state */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .book-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stats-grid {
+        @apply grid-cols-2;
+    }
+    
+    .footer-stats-content {
+        @apply flex-col gap-2;
+    }
+}
+
+/* Accesibilidad: focus visible */
+.book-card a:focus-visible,
+.btn-primary:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* Efectos de hover mejorados */
+.btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.book-card:hover .book-icon {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Animación de entrada para los botones */
+.btn-primary {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.btn-primary:nth-child(1) { animation-delay: 0.1s; }
+.btn-primary:nth-child(2) { animation-delay: 0.2s; }
+.btn-primary:nth-child(3) { animation-delay: 0.3s; }
+
+/* Print styles */
+@media print {
+    .bg-gradient-to-br,
+    .bg-gradient-to-r {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .shadow-2xl,
+    .shadow-xl,
+    .shadow-md {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    .btn-primary,
+    .book-actions {
+        display: none !important;
+    }
+}

@@ -1,0 +1,352 @@
+/* Breadcrumb */
+.breadcrumb {
+    @apply flex items-center text-sm text-gray-600;
+}
+
+.breadcrumb-item {
+    @apply flex items-center text-indigo-600 hover:text-indigo-800 transition-colors duration-200;
+}
+
+.breadcrumb-current {
+    @apply text-gray-800 font-medium;
+}
+
+/* Botones principales */
+.btn-primary {
+    @apply inline-flex items-center px-6 py-3 font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl;
+}
+
+.btn-active {
+    @apply bg-gradient-to-r from-green-500 to-emerald-600 text-white border-2 border-green-300;
+}
+
+.btn-secondary {
+    @apply bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:from-gray-600 hover:to-gray-700;
+}
+
+.btn-blue {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-600 text-white hover:from-blue-600 hover:to-cyan-700;
+}
+
+/* Panel de consejos */
+.tips-panel {
+    @apply mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200;
+}
+
+.tips-title {
+    @apply text-xl font-semibold text-blue-800 mb-4 flex items-center;
+}
+
+.tips-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.tip-card {
+    @apply bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
+.tip-icon {
+    @apply text-2xl mb-2;
+}
+
+.tip-content h4 {
+    @apply font-semibold text-gray-800 mb-1;
+}
+
+.tip-content p {
+    @apply text-sm text-gray-600;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden;
+}
+
+.form-header {
+    @apply bg-gradient-to-r from-slate-50 to-gray-50 px-6 py-4 border-b border-gray-200;
+}
+
+.form-title {
+    @apply text-2xl font-bold text-gray-800 flex items-center mb-2;
+}
+
+.form-subtitle {
+    @apply text-gray-600;
+}
+
+/* Barra de progreso */
+.progress-container {
+    @apply px-6 py-4 bg-gray-50 border-b border-gray-200;
+}
+
+.progress-bar {
+    @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-2;
+}
+
+.progress-fill {
+    @apply h-full bg-gradient-to-r from-green-500 to-emerald-600 transition-all duration-500 ease-out;
+    width: 0%;
+}
+
+.progress-text {
+    @apply text-sm text-gray-600 font-medium;
+}
+
+/* Formulario */
+.book-form {
+    @apply p-6;
+}
+
+.form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-8;
+}
+
+.form-group {
+    @apply space-y-2;
+}
+
+.form-group-full {
+    @apply md:col-span-2;
+}
+
+.form-label {
+    @apply block text-sm font-semibold text-gray-700 flex items-center;
+}
+
+.required-asterisk {
+    @apply text-red-500 ml-1;
+}
+
+/* Estilos para los campos del formulario */
+.book-form input[type="text"],
+.book-form input[type="email"],
+.book-form input[type="date"],
+.book-form input[type="number"],
+.book-form textarea,
+.book-form select {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none;
+}
+
+.book-form textarea {
+    @apply min-h-32 resize-y;
+}
+
+.book-form input:focus,
+.book-form textarea:focus,
+.book-form select:focus {
+    @apply shadow-lg;
+}
+
+.field-help {
+    @apply text-xs text-gray-500 italic;
+}
+
+.field-errors {
+    @apply mt-1;
+}
+
+.error-message {
+    @apply text-sm text-red-600 flex items-center;
+}
+
+.error-message::before {
+    content: "⚠️";
+    @apply mr-1;
+}
+
+/* Botones de acción */
+.form-actions {
+    @apply flex flex-wrap gap-4 justify-end;
+}
+
+.btn-submit {
+    @apply inline-flex items-center px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-lg shadow-lg hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl;
+}
+
+.btn-cancel {
+    @apply inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white font-semibold rounded-lg shadow-lg hover:from-gray-600 hover:to-gray-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl;
+}
+
+.btn-preview {
+    @apply inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:from-purple-600 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 hover:shadow-xl;
+}
+
+/* Modal */
+.modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+}
+
+.modal-content {
+    @apply bg-white rounded-xl shadow-2xl max-w-2xl w-full mx-4 max-h-96 overflow-hidden;
+}
+
+.modal-header {
+    @apply flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-slate-50 to-gray-50;
+}
+
+.modal-title {
+    @apply text-xl font-bold text-gray-800;
+}
+
+.modal-close {
+    @apply p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200;
+}
+
+.modal-body {
+    @apply p-6;
+}
+
+.preview-card {
+    @apply flex items-start space-x-4 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200;
+}
+
+.preview-icon {
+    @apply text-4xl flex-shrink-0;
+}
+
+.preview-content {
+    @apply flex-1;
+}
+
+.preview-title {
+    @apply text-xl font-bold text-gray-800 mb-2;
+}
+
+.preview-author {
+    @apply text-gray-600 mb-2 flex items-center;
+}
+
+.preview-author::before {
+    content: "👤";
+    @apply mr-2;
+}
+
+.preview-description {
+    @apply text-gray-700 mb-3 leading-relaxed;
+}
+
+.preview-date {
+    @apply text-sm text-gray-500 flex items-center;
+}
+
+.preview-date::before {
+    content: "📅";
+    @apply mr-2;
+}
+
+.modal-footer {
+    @apply px-6 py-4 bg-gray-50 border-t border-gray-200 text-right;
+}
+
+.btn-modal-close {
+    @apply px-6 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors duration-200;
+}
+
+/* Footer */
+.footer-info {
+    @apply bg-gray-50 px-8 py-4 border-t border-gray-200 text-center text-gray-600 text-sm;
+}
+
+.footer-content {
+    @apply flex flex-wrap justify-center gap-6;
+}
+
+/* Animaciones personalizadas */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-group {
+    animation: slideIn 0.6s ease-out;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+
+/* Estados de validación */
+.form-group.valid input,
+.form-group.valid textarea {
+    @apply border-green-400 ring-2 ring-green-100;
+}
+
+.form-group.invalid input,
+.form-group.invalid textarea {
+    @apply border-red-400 ring-2 ring-red-100;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .form-actions {
+        @apply flex-col;
+    }
+    
+    .btn-submit,
+    .btn-cancel,
+    .btn-preview {
+        @apply w-full justify-center;
+    }
+    
+    .tips-grid {
+        @apply grid-cols-1;
+    }
+    
+    .footer-content {
+        @apply flex-col gap-2;
+    }
+}
+
+/* Estados hover mejorados */
+.form-group:hover .form-label {
+    @apply text-indigo-600;
+}
+
+.tip-card:hover {
+    @apply transform scale-105;
+}
+
+.tip-card:hover .tip-icon {
+    @apply scale-110;
+}
+
+/* Accesibilidad */
+.btn-submit:focus,
+.btn-cancel:focus,
+.btn-preview:focus {
+    @apply outline-none ring-4 ring-opacity-50;
+}
+
+.btn-submit:focus {
+    @apply ring-green-300;
+}
+
+.btn-cancel:focus {
+    @apply ring-gray-300;
+}
+
+.btn-preview:focus {
+    @apply ring-purple-300;
+}
+
+/* Print styles */
+@media print {
+    .modal,
+    .btn-preview,
+    .tips-panel {
+        @apply hidden;
+    }
+    
+    .bg-gradient-to-r,
+    .bg-gradient-to-br {
+        background: white !important;
+        color: black !important;
+    }
+}
