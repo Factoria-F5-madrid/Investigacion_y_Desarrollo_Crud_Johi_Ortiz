@@ -1,0 +1,108 @@
+/* Estilos para la página de detalle de libro - Desarrollado por johiortiz - 2025-07-12 */
+
+/* Estilos de botones */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #2563eb;
+}
+
+.btn-yellow {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.btn-yellow:hover {
+  background-color: #d97706;
+}
+
+.btn-red {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: #dc2626;
+}
+
+/* Estilos de secciones de detalle */
+.detail-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-section:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.detail-value {
+  font-size: 1.125rem;
+  color: #1f2937;
+  transition: color 0.2s ease;
+}
+
+.detail-value:hover {
+  color: #4f46e5;
+}
+
+/* Estilos para la barra de estadísticas del pie de página */
+.footer-stats {
+  background-color: #1f2937;
+  color: #d1d5db;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.footer-stats-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .footer-stats-content {
+    justify-content: space-between;
+  }
+}
+
+/* Animaciones */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utilidades */
+.whitespace-pre-line {
+  white-space: pre-line;
+}

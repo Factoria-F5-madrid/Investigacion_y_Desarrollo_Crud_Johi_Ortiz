@@ -1,15 +1,171 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Editar {{ libro.titulo }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Libro | Biblioteca Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/editar_libro.css' %}">
 </head>
-<body>
-    <h1>Editar {{ libro.titulo }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar cambios</button>
-    </form>
-    <a href="{% url 'detalle_libro' libro.id %}">Cancelar</a>
+<body class="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 p-5">
+    <div class="max-w-4xl mx-auto bg-white/95 rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-slate-800 to-slate-700 text-white text-center py-12 px-5">
+            <h1 class="text-4xl md:text-5xl font-bold mb-3 drop-shadow-lg">✏️ Editar Libro</h1>
+            <p class="text-lg opacity-90">Modifica la información del libro</p>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="bg-white border-b border-gray-200 px-6 py-4">
+            <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                <!-- Botón Volver -->
+                <a href="{% url 'detalle_libro' libro.id %}" class="btn-primary btn-blue">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Volver a detalles
+                </a>
+                
+                <!-- Botón Lista -->
+                <a href="{% url 'lista_libros' %}" class="btn-primary btn-gray">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                    Lista de libros
+                </a>
+            </div>
+        </div>
+
+        <!-- Content Container -->
+        <div class="p-6 md:p-8 flex-grow">
+            <form method="post" class="form-container">
+                {% csrf_token %}
+                
+                <!-- Información general -->
+                <div class="form-section">
+                    <h2 class="form-section-title">Información General</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_titulo" class="form-label">Título <span class="required">*</span></label>
+                            {{ form.titulo }}
+                            {% if form.titulo.errors %}
+                                <div class="error-message">{{ form.titulo.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_autor" class="form-label">Autor <span class="required">*</span></label>
+                            {{ form.autor }}
+                            {% if form.autor.errors %}
+                                <div class="error-message">{{ form.autor.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_editorial" class="form-label">Editorial</label>
+                            {{ form.editorial }}
+                            {% if form.editorial.errors %}
+                                <div class="error-message">{{ form.editorial.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_fecha_publicacion" class="form-label">Fecha de publicación</label>
+                            {{ form.fecha_publicacion }}
+                            {% if form.fecha_publicacion.errors %}
+                                <div class="error-message">{{ form.fecha_publicacion.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detalles adicionales -->
+                <div class="form-section">
+                    <h2 class="form-section-title">Detalles Adicionales</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_isbn" class="form-label">ISBN</label>
+                            {{ form.isbn }}
+                            {% if form.isbn.errors %}
+                                <div class="error-message">{{ form.isbn.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_genero" class="form-label">Género</label>
+                            {{ form.genero }}
+                            {% if form.genero.errors %}
+                                <div class="error-message">{{ form.genero.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="id_paginas" class="form-label">Número de páginas</label>
+                            {{ form.paginas }}
+                            {% if form.paginas.errors %}
+                                <div class="error-message">{{ form.paginas.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_idioma" class="form-label">Idioma</label>
+                            {{ form.idioma }}
+                            {% if form.idioma.errors %}
+                                <div class="error-message">{{ form.idioma.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Descripción -->
+                <div class="form-section">
+                    <h2 class="form-section-title">Descripción</h2>
+                    
+                    <div class="form-group full-width">
+                        <label for="id_descripcion" class="form-label">Descripción del libro</label>
+                        {{ form.descripcion }}
+                        {% if form.descripcion.errors %}
+                            <div class="error-message">{{ form.descripcion.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Botones -->
+                <div class="button-container">
+                    <button type="submit" class="submit-button">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        Guardar cambios
+                    </button>
+                    
+                    <a href="{% url 'detalle_libro' libro.id %}" class="cancel-button">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer-stats">
+            <div class="footer-stats-content">
+                <span>📘 Editando Libro #{{ libro.id }}</span>
+                <span>👤 Bibliotecario: johiortiz</span>
+                <span>📅 2025-07-12 23:33</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/editar_libro.js' %}"></script>
 </body>
 </html>

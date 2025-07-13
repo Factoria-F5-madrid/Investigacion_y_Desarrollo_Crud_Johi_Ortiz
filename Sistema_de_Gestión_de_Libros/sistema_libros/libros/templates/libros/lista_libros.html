@@ -34,6 +34,24 @@
             }
         }
     </script>
+    <style>
+        /* Estilos que faltaban */
+        .btn-primary {
+            @apply inline-flex items-center px-4 py-2 rounded-lg font-medium transition-all duration-300;
+        }
+        .btn-green {
+            @apply bg-emerald-600 hover:bg-emerald-700 text-white;
+        }
+        .btn-active {
+            @apply bg-indigo-600 hover:bg-indigo-700 text-white;
+        }
+        .footer-stats {
+            @apply bg-slate-800 text-slate-300 py-3 px-6 text-sm;
+        }
+        .footer-stats-content {
+            @apply flex flex-wrap gap-x-8 gap-y-2 justify-center md:justify-between;
+        }
+    </style>
     <link rel="stylesheet" href="{% static 'css/lista_libros.css' %}">
 </head>
 <body class="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 p-5">
@@ -47,23 +65,23 @@
         <!-- Navigation Buttons -->
         <div class="bg-white border-b border-gray-200 px-6 py-4">
             <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-            <!-- Botón Crear Libro -->
-             <a href="{% url 'crear_libro' %}"
-                class="btn-primary btn-green">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0 0v6m0-6h6m-6 0h6"></path>
-                </svg>
-                Crear Libro
-             </a>
+                <!-- Botón Crear Libro -->
+                <a href="{% url 'crear_libro' %}" class="btn-primary btn-green">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Crear Libro
+                </a>
 
-            <!-- Botón Lista de Libros (activo) -->
-            <a href="{% url 'lista_libros' %}" 
-                class="btn-primary btn-active">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012 2v2M7 7h10"></path>
-                </svg>
+                <!-- Botón Lista de Libros (activo) -->
+                <a href="{% url 'lista_libros' %}" class="btn-primary btn-active">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
                     Lista de Libros
-            </a>
+                </a>
+            </div>
+        </div>
 
         <!-- Content Container -->
         <div class="p-6 md:p-8">
