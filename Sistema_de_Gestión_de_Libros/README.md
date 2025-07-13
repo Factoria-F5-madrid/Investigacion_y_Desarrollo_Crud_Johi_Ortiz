@@ -4,6 +4,20 @@
   <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGFha3F3aW5jZGE1dm5ldXNyaDB6MXh4Z2JvNGk5NTZrcXhyZTUzbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdJvcwUTTv5BvoI/giphy.gif" alt="Banner del Proyecto">
 </p>
 
+## 📋 Índice
+- [📚 Descripción](#-descripción)
+- [✨ Características principales](#-características-principales)
+- [🛠️ Tecnologías utilizadas](#%EF%B8%8F-tecnologías-utilizadas)
+- [🔒 Seguridad](#-seguridad)
+- [🚀 Instalación](#-instalación)
+- [📝 Uso del sistema](#-uso-del-sistema)
+- [📂 Estructura del proyecto](#-estructura-del-proyecto)
+- [📸 Capturas de pantalla](#-capturas-de-pantalla)
+- [🌟 Características destacadas](#-características-destacadas)
+- [👨‍💻 Autor](#-autor)
+- [📊 Estado del proyecto](#-estado-del-proyecto)
+- [🔜 Próximas mejoras](#-próximas-mejoras)
+
 ## 📚 Descripción
 
 Un sistema completo de gestión de biblioteca digital que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para administrar un catálogo de libros. Desarrollado con Django y diseñado con Tailwind CSS para ofrecer una experiencia de usuario moderna e intuitiva.
@@ -127,14 +141,50 @@ sistema_libros/
 
 ## 📸 Capturas de pantalla
 
-### Página principal - Lista de libros
-![Lista de libros](https://via.placeholder.com/800x450/e0e0e0/333333?text=Lista+de+Libros)
+## Página principal - Lista de libros
 
-### Formulario de creación de libros
-![Crear libro](https://via.placeholder.com/800x450/e0e0e0/333333?text=Crear+Libro)
+<div align="center">
+  <img src="./assets/lista_libros.png" width="50%" alt="Lista de libros">
+</div>
 
-### Vista detallada de libro
-![Detalle libro](https://via.placeholder.com/800x450/e0e0e0/333333?text=Detalle+Libro)
+---
+
+## Formulario de creación de libros
+
+<div align="center">
+  <img src="./assets/crear_libro.png" width="50%" alt="Crear libro">
+</div>
+
+---
+
+<div align="center">
+  <img src="./assets/crear_libro_2.png" width="50%" alt="Crear libro - parte 2">
+</div>
+
+---
+## Vista detallada de libro
+
+<div align="center">
+  <img src="./assets/detalle_libro.png" width="50%" alt="Detalle libro">
+</div>
+
+---
+
+## Editar libro
+
+<div align="center">
+  <img src="./assets/editar_libro.png" width="50%" alt="Editar libro">
+</div>
+
+---
+
+## Eliminar libro
+
+<div align="center">
+  <img src="./assets/eliminar_libro.png" width="50%" alt="Eliminar libro">
+</div>
+
+---
 
 ## 🌟 Características destacadas
 
