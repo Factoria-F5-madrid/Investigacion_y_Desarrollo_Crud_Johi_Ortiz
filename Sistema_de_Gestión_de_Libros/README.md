@@ -21,6 +21,57 @@
 ## 📚 Descripción
 
 Un sistema completo de gestión de biblioteca digital que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para administrar un catálogo de libros. Desarrollado con Django y diseñado con Tailwind CSS para ofrecer una experiencia de usuario moderna e intuitiva.
+Este proyecto implementa una arquitectura monolítica donde todos los componentes de la aplicación (interfaz de usuario, lógica de negocio y acceso a datos) están integrados en un único sistema. A diferencia de arquitecturas basadas en microservicios, aquí todas las funcionalidades se despliegan y escalan como una unidad.
+Un proyecto monolítico es un estilo de arquitectura de software donde toda la aplicación se construye como una sola unidad o bloque funcional. En este enfoque, todos los componentes de la aplicación (como la interfaz de usuario, la lógica de negocio y el acceso a datos) están estrechamente acoplados y se ejecutan en un solo proceso.
+
+## 🔑 Características principales
+
+- **Estructura única**: Todo el código se encuentra en un solo repositorio y se compila como una única unidad.
+- **Despliegue único**: La aplicación completa se despliega de una sola vez.
+- **Base de código compartida**: Todos los desarrolladores trabajan sobre la misma base de código.
+- **Acoplamiento fuerte**: Los componentes están estrechamente vinculados entre sí.
+
+## ✅ Ventajas
+
+- **Simplicidad inicial**: Más fácil de desarrollar en las etapas iniciales.
+- **Depuración sencilla**: Al estar todo integrado, es más fácil seguir el flujo de ejecución.
+- **Menor complejidad operativa**: Un solo sistema para desplegar y monitorear.
+- **Rendimiento**: La comunicación entre componentes es más rápida al estar en el mismo proceso.
+
+## ⚠️ Desventajas
+
+- **Escalabilidad limitada**: Es difícil escalar componentes individuales.
+- **Tecnología homogénea**: Generalmente se utiliza un solo lenguaje/framework.
+- **Mantenimiento complejo**: A medida que crece, se vuelve más difícil de mantener.
+- **Despliegues arriesgados**: Cualquier cambio requiere desplegar toda la aplicación.
+
+## 🔄 Comparación con microservicios
+
+A diferencia de los proyectos monolíticos, la arquitectura de microservicios divide la aplicación en servicios pequeños e independientes, cada uno con su propia responsabilidad, base de código y proceso de despliegue.
+
+| **Aspecto** | **Monolítico** | **Microservicios** |
+|-------------|----------------|-------------------|
+| Estructura | Una sola unidad | Múltiples servicios independientes |
+| Despliegue | Toda la aplicación | Por servicio individual |
+| Escalabilidad | De toda la aplicación | Por servicio según necesidad |
+| Tecnología | Generalmente homogénea | Puede ser heterogénea |
+| Comunicación | Llamadas a funciones internas | APIs/mensajería entre servicios |
+| Desarrollo inicial | Más rápido y simple | Más complejo y costoso |
+| Mantenimiento a largo plazo | Más complejo | Más manejable |
+
+## 🏗️ Arquitectura
+
+```
+┌────────────────── Aplicación Monolítica ──────────────────┐
+│                                                           │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    │
+│  │  Interfaz   │    │   Lógica    │    │   Acceso    │    │
+│  │  de Usuario │━━━━│  de Negocio │━━━━│   a Datos   │    │
+│  └─────────────┘    └─────────────┘    └─────────────┘    │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+```
+
 
 ## ✨ Características principales
 
@@ -188,7 +239,6 @@ sistema_libros/
 
 ## 🌟 Características destacadas
 
-- **Barra de progreso interactiva**: Indica el porcentaje de completitud del formulario
 - **Panel de consejos**: Ayuda al usuario con recomendaciones para crear registros
 - **Vista previa**: Permite visualizar cómo quedará el libro antes de guardarlo
 - **Validación en tiempo real**: Feedback inmediato al usuario sobre errores
