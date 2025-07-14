@@ -25,7 +25,7 @@ Un sistema completo de gestión de biblioteca digital que permite realizar opera
 ## ✨ Características principales
 
 - **Crear libros**: Formulario interactivo con validación de datos y barra de progreso
-- **Ver libros**: Listado de libros con opciones de filtrado y búsqueda
+- **Ver libros**: Listado de libros
 - **Detalles de libro**: Vista detallada de cada libro con toda su información
 - **Actualizar libros**: Edición completa de la información de libros existentes
 - **Eliminar libros**: Eliminación segura con confirmación
@@ -209,6 +209,7 @@ sistema_libros/
 ### 🔜 Próximas mejoras
 
 - Implementación de autenticación de usuarios
+- Opciones de filtrado y búsqueda
 - Categorización de libros por géneros
 - Sistema de reseñas y valoraciones
 - Exportación de datos a PDF/CSV
